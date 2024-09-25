@@ -14,6 +14,12 @@ O projeto QBank tem como objetivo desenvolver uma aplicação bancária moderna 
 
 ## Tecnologias Utilizadas
 
+-  ASP.NET Core (C#)
+- Entity Framework Core
+- SQL Server
+- HTML/CSS/JavaScript (para a interface web)
+- Angula 
+
 ## Arquitetura Hexagonal 
 
 Arquitetura 
