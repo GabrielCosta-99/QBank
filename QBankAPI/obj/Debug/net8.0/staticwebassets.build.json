@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qyR/xHn6iGf4lWLG3apERmaGOOliTQHRbwtqzmcy8JM=",
+  "Source": "QBankAPI",
+  "BasePath": "_content/QBankAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
