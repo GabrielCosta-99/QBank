@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\QBank\\QBankAPI\\QBankAPI.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\projetoQbank\\QBank\\QBankAPI\\QBankAPI.csproj",
       "projectName": "QBankAPI",
-      "projectPath": "C:\\Users\\USER\\QBank\\QBankAPI\\QBankAPI.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\QBank\\QBankAPI\\obj\\",
+      "projectPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\projetoQbank\\QBank\\QBankAPI\\QBankAPI.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\projetoQbank\\QBank\\QBankAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
