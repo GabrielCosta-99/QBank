@@ -46,13 +46,3 @@ Assim, se você quiser mudar a forma como aplicativo recebe dados (como trocar d
 **porque ela seria a melhor escolha:**
 
 A arquitetura hexagonal é especialmente vantajosa para um aplicativo bancário porque isola a lógica de negócios das interfaces externas, garantindo segurança e integridade. Essa separação facilita testes, permitindo que a lógica do banco seja avaliada sem interferências das entradas e saídas. Além disso, ela oferece flexibilidade para mudanças, possibilitando a troca de adaptadores para novas interfaces ou serviços sem impactar a lógica principal. Por fim, à medida que o banco cresce, a arquitetura hexagonal permite adicionar funcionalidades e integrar novos sistemas de forma escalável, tornando-se uma escolha robusta em comparação com MVP e DDD.
-
-## Pastas 
-
-** Dominio**
- 
-** Aplicação**
-
-- serviços ( pasta)
-
-** Arquitetura Hexagonal**
