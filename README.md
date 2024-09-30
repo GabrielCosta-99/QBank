@@ -24,6 +24,7 @@ O projeto QBank tem como objetivo desenvolver uma aplicação bancária moderna 
 
 
 A arquitetura hexagonal, também conhecida como arquitetura de portas e adaptadores, vem do trabalho de Alistair Cockburn. É um jeito de estruturar aplicativos de software. Nela, as entradas e saídas ficam na borda do projeto, o que ajuda a separar a lógica principal do aplicativo do ambiente externo. Como as entradas e saídas estão na borda, podemos mudar os manipuladores sem impactar o código principal. Em resumo, é uma maneira de organizar o código em camadas, cada uma com sua função, com o objetivo de manter a lógica da aplicação isolada do mundo externo.
+
 ![alt text](image-2.png)
 
 **como ela funciona?**
@@ -45,3 +46,14 @@ Assim, se você quiser mudar a forma como aplicativo recebe dados (como trocar d
 **porque ela seria a melhor escolha:**
 
 A arquitetura hexagonal é especialmente vantajosa para um aplicativo bancário porque isola a lógica de negócios das interfaces externas, garantindo segurança e integridade. Essa separação facilita testes, permitindo que a lógica do banco seja avaliada sem interferências das entradas e saídas. Além disso, ela oferece flexibilidade para mudanças, possibilitando a troca de adaptadores para novas interfaces ou serviços sem impactar a lógica principal. Por fim, à medida que o banco cresce, a arquitetura hexagonal permite adicionar funcionalidades e integrar novos sistemas de forma escalável, tornando-se uma escolha robusta em comparação com MVP e DDD.
+
+## Pastas 
+
+** Dominio**
+ 
+** Aplicação**
+
+- serviços ( pasta)
+
+** Arquitetura Hexagonal**
+**
