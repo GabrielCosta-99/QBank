@@ -1,4 +1,4 @@
-namespace QBankApi.Models
+/*namespace QBankApi.Models
 {
     public class Pagamento
     {
@@ -51,4 +51,4 @@ namespace QBankApi.Models
             // codigo
         }
     }
-}
+}*/

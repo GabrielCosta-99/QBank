@@ -1,4 +1,4 @@
-namespace QBankApi.Models
+/*namespace QBankApi.Models
 {
     public class Transacao
     {
@@ -37,3 +37,4 @@ namespace QBankApi.Models
         }
     }
 }
+*/
