@@ -1,4 +1,5 @@
-using
+using Microsoft.EntityFrameworkCore;
+
 namespace QBankApi.Models
 {
     public class CadastroUsuario
