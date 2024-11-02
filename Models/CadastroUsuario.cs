@@ -11,6 +11,9 @@ namespace QBankApi.Models
         public string Senha { get; set; }
         public string TipoConta { get; set; }
 
+        // Construtor padrão
+        public CadastroUsuario() { }
+
         // Construtor para inicializar as propriedades
         public CadastroUsuario(string nome, string cpf, string email, string senha, string tipoConta)
         {

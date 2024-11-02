@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using QBankApi.Data; 
-using QBankApi.Models; S
+using QBankApi.Models; // Certifique-se de que esse namespace está correto
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace QBankApi.Controllers
+namespace QBankApi.Controllers  
 {
     [Route("api/[controller]")]
     [ApiController]
