@@ -1,6 +1,8 @@
-// Program.cs
 using Microsoft.EntityFrameworkCore;
 using QBankApi.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,21 +10,41 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), 
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
-    
-//Adiciona os serviços de controlador(Registra os controllers para que o ASP.NET 
-//Core possa localizar e configurar automaticamente as rotas.)
 
+// Configura autenticação com JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
+// Adiciona os serviços de controlador
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
+// Middleware de roteamento
 app.UseRouting();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();// Configura o roteamento e mapeia as rotas definidas nos controllers, sem necessidade do Swagger.
-});
+// Middleware de autenticação e autorização
+app.UseAuthentication();
+app.UseAuthorization();
 
+// Mapeia os endpoints dos controllers
+app.MapControllers();
 
-// Demais configurações...
+// Executa o aplicativo
 app.Run();

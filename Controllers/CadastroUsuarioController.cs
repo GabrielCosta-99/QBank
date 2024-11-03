@@ -1,12 +1,14 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QBankApi.Data; 
-using QBankApi.Models; // Certifique-se de que esse namespace está correto
+using QBankApi.Models; 
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace QBankApi.Controllers  
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CadastroUsuarioController : ControllerBase
@@ -38,6 +40,7 @@ namespace QBankApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<CadastroUsuario>> PostUsuario(CadastroUsuario usuario)
         {
             _context.Set<CadastroUsuario>().Add(usuario);
@@ -91,3 +94,4 @@ namespace QBankApi.Controllers
         }
     }
 }
+
