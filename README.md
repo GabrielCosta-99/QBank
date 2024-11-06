@@ -17,6 +17,7 @@ O projeto QBank tem como objetivo desenvolver uma aplicação bancária moderna 
 - ASP.NET Core (C#)
 - Entity Framework Core
 - SQL Server
+- MySQL
 - HTML/CSS/JavaScript (para a interface web)
 - Angula 
 
@@ -43,6 +44,28 @@ Assim, se você quiser mudar a forma como aplicativo recebe dados (como trocar d
 
 - Camada de Infraestrutura: Aqui estão as conexões com o mundo externo, como as tomadas e cabos. Essa camada é responsável por se conectar a diferentes tipos de entradas e saídas, permitindo que o carregador funcione em vários países.
 
-**porque ela seria a melhor escolha:**
+**Porque ela seria a melhor escolha:**
 
 A arquitetura hexagonal é especialmente vantajosa para um aplicativo bancário porque isola a lógica de negócios das interfaces externas, garantindo segurança e integridade. Essa separação facilita testes, permitindo que a lógica do banco seja avaliada sem interferências das entradas e saídas. Além disso, ela oferece flexibilidade para mudanças, possibilitando a troca de adaptadores para novas interfaces ou serviços sem impactar a lógica principal. Por fim, à medida que o banco cresce, a arquitetura hexagonal permite adicionar funcionalidades e integrar novos sistemas de forma escalável, tornando-se uma escolha robusta em comparação com MVP e DDD.
+
+
+## Git Ignore
+
+O arquivo .gitignore foi criado para ignorar arquivos gerados durante a compilação e que podem prejudicar o versionamento do projeto, nele foram colocado os arquivos e pastas a serem ignoradas, levando em conta que a aplicação utiliza o C# e o .NET.
+
+Segue o link do repositório usado para a criação do .gitignore: [csharp.gitignore](https://gist.github.com/takekazuomi/10955889)
+
+## MySQL
+
+O MySQL é um dos sistemas gerenciadores de banco de dados mais utilizados do mundo, funciona em conjunto com a linguagem de programação SQL, que é usada para ler, modificar e excluir os dados armazenados no banco de dados.
+
+**Como foi aplicado o MySQL:**
+Para utilizar o MySQL, é necessário instalar um servidor e uma aplicação cliente. O servidor é o responsável por armazenar os dados, responder às requisições, controlar a consistência dos dados, bem como a execução de transações concomitantes entre outras. O cliente se comunica com o servidor através da SQL.
+
+## Auth2
+
+É um protocolo de autorização, foi projetado principalmente como um meio de conceder acesso a um conjunto de recursos.
+
+O Oauth 2.0 usa tokens de acesso que é um dado que representa a autorização para acessar recursos em nome do usuário final.O formato JSON Web Token (JWT) é frequentemente usado como formato para o token.
+
+
