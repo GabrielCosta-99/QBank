@@ -3,13 +3,23 @@ using QBankApi.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Azure.Security.KeyVault.Secrets;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona o DbContext com a string de conexão para MySQL
+// Configuração para acessar o Azure Key Vault
+string keyVaultUrl = "https://qbankchave.vault.azure.net/"; // URL do seu Key Vault
+var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
+
+// Buscando o segredo da string de conexão no Key Vault
+KeyVaultSecret connectionStringSecret = client.GetSecret("ChaveQBank");
+string connectionString = connectionStringSecret.Value;
+
+// Adiciona o DbContext com a string de conexão para MySQL obtida do Key Vault
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), 
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+    options.UseMySql(connectionString, 
+    ServerVersion.AutoDetect(connectionString)));
 
 // Configura autenticação com JWT
 builder.Services.AddAuthentication(options =>
