@@ -4,14 +4,15 @@ namespace QBankApi.Models
 {
     public class CadastroUsuario
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public string TipoConta { get; set; }
+        // Propriedades da classe
+        public int Id { get; set; } // Chave primária (opcional, pode ser gerada pelo EF)
+        public string Nome { get; set; } = string.Empty; // Adicionando valor padrão
+        public string CPF { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public string TipoConta { get; set; } = string.Empty;
 
-        // Construtor padrão
+        // Construtor padrão (necessário para o Entity Framework Core)
         public CadastroUsuario() { }
 
         // Construtor para inicializar as propriedades
@@ -19,8 +20,8 @@ namespace QBankApi.Models
         {
             Nome = nome;
             CPF = cpf;
-            Email = email;
-            Senha = senha;
+            Email = email ?? throw new ArgumentNullException(nameof(email));
+            Senha = senha ?? throw new ArgumentNullException(nameof(senha));
             TipoConta = tipoConta;
         }
     }
