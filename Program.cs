@@ -83,6 +83,9 @@ else
 // Middleware de roteamento
 app.UseRouting();
 
+// Middleware para redirecionar todas as requisições HTTP para HTTPS
+app.UseHttpsRedirection();
+
 // Middleware de autenticação e autorização
 app.UseAuthentication();
 app.UseAuthorization();
