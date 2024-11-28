@@ -55,9 +55,12 @@ namespace QBankApi.Controllers
                 return Unauthorized("Credenciais inválidas");
             }
 
+            // Validar e obter a chave JWT
+            string jwtKey = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("A chave JWT não está configurada.");
+            var key = Encoding.UTF8.GetBytes(jwtKey);
+
             // Gerar Token JWT
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[] { new Claim(ClaimTypes.Name, user.Email) }),
@@ -75,8 +78,8 @@ namespace QBankApi.Controllers
         // Classe para representar os dados de login recebidos
         public class LoginRequest
         {
-            public string Email { get; set; }
-            public string Senha { get; set; }
+            public string Email { get; set; } = string.Empty;
+            public string Senha { get; set; } = string.Empty;
         }
     }
 }
