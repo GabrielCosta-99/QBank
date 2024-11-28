@@ -20,8 +20,8 @@ namespace QBankApi.Models
         {
             Nome = nome;
             CPF = cpf;
-            Email = email ?? throw new ArgumentNullException(nameof(email));
-            Senha = senha ?? throw new ArgumentNullException(nameof(senha));
+            Email = email ?? throw new ArgumentNullException(nameof(email)); // Garantir que Email não seja nulo
+            Senha = senha ?? throw new ArgumentNullException(nameof(senha)); // Garantir que Senha não seja nulo
             TipoConta = tipoConta;
         }
     }
