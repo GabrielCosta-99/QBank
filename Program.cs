@@ -7,6 +7,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
 // Configuração para acessar o Azure Key Vault
 string keyVaultUrl = "https://qbankchave.vault.azure.net/"; // URL do seu Key Vault
