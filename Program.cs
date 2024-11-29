@@ -8,6 +8,9 @@ using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// o Application Insights
+builder.Services.AddApplicationInsightsTelemetry();
+
 // Adiciona configuração do appsettings.json
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
@@ -68,6 +71,18 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+// Configurações do ambiente
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("/error");
+    app.UseHsts();
+}
+
 
 // Configuração de ambiente
 if (app.Environment.IsDevelopment())
