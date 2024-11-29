@@ -67,6 +67,17 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Configuração de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()  // Permite qualquer origem
+              .AllowAnyMethod()  // Permite qualquer método HTTP (GET, POST, PUT, DELETE, etc.)
+              .AllowAnyHeader(); // Permite qualquer cabeçalho
+    });
+});
+
 // Adiciona os serviços de controlador
 builder.Services.AddControllers();
 
@@ -94,6 +105,9 @@ else
     app.UseExceptionHandler("/error");
     app.UseHsts();
 }
+
+// Aplica a política de CORS antes do roteamento e autenticação
+app.UseCors("AllowAll");
 
 // Middleware de roteamento
 app.UseRouting();
